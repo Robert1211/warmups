@@ -30,6 +30,6 @@ const scrabble = function(word) {
     let letter = wordArray[i]
     wordScore = wordScore + letterScore(letter)
   }
-  
+    
   return wordScore
 }
