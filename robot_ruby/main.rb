@@ -2,11 +2,16 @@ require "pry"
 
 class Robot
 
-  def initialize
+  def initialize rock, paper, scissors
     @name = make_name
     @creation_time = Time.new
     @boot_time = Time.new
     @counter = 0
+    @stats = {
+      :paper => rock,
+      :scissors => paper,
+      :rock => scissors.to_i
+    }
   end
 
   def make_name
@@ -27,6 +32,10 @@ class Robot
   def creation_time
     @counter += 1
     @creation_time
+  end
+  def stats
+    @counter += 1
+    @stats
   end
 
   def reset
@@ -52,18 +61,43 @@ end
 
 def robot_battle r1, r2
 
-  p r1.name, r1.instruction_count, r1.timers
-  p r2.name, r2.instruction_count, r2.timers
+  # p r1.name, r1.instruction_count, r1.timers
+  # p r2.name, r2.instruction_count, r2.timers
+  #
+  # if r1.creation_time > r2.creation_time
+  #   r2.reset
+  # else
+  #   r1.reset
+  # end
+  #
+  # p r1.name, r1.instruction_count, r1.timers
+  # p r2.name, r2.instruction_count, r2.timers
 
-  if r1.creation_time > r2.creation_time
-    r2.reset
-  else
-    r1.reset
+  p r1.name, r1.stats
+  p r2.name, r2.stats
+
+  until (r1.stats.values.include? 0) || (r2.stats.values.include? 0)
+
+    if r1.stats[:rock] > r2.stats[:rock]
+      r2.stats[:rock] = r2.stats[:rock] - 1
+    else
+      r1.stats[:rock] = r1.stats[:rock] - 1
+    end
+    if r1.stats[:paper] > r2.stats[:paper]
+      r2.stats[:paper] = r2.stats[:paper] - 1
+    else
+      r1.stats[:paper] = r1.stats[:paper] - 1
+    end
+    if r1.stats[:scissors] > r2.stats[:scissors]
+      r2.stats[:scissors] = r2.stats[:scissors] - 1
+    else
+      r1.stats[:scissors] = r1.stats[:scissors] - 1
+    end
+
+
+
   end
-
-  p r1.name, r1.instruction_count, r1.timers
-  p r2.name, r2.instruction_count, r2.timers
-
+  winner = (r1.stats.values.include? 0) ? r2 : r1
 end
 
 
