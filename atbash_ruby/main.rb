@@ -17,7 +17,7 @@ class Atbash
             output << alphabet.reverse[index]
         end
 
-        output
+        p output
     end 
 end 
 
