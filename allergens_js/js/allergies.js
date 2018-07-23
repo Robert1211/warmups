@@ -34,25 +34,32 @@ const allergies = {
     128: "cats"
   },
 
-  getScores: function() {
+  getTheNumbers: function() {
     return Object.keys(this.scores).reverse().map(Number);
   },
 
-  makeList: function(num) {
-    let numbers = this.getScores();
+  makeIndividualNumberList: function(num) {
+    let allNumbers = this.getTheNumbers();
     let list = [];
 
-    for (var i = 0; i < numbers.length; i++) {
-      if (num >= numbers[i]) {
-        num = num - numbers[i];
-        list.push(numbers[i]);
+    // for (var i = 0; i < numbers.length; i++) {
+    //   if (num >= numbers[i]) {
+    //     num = num - numbers[i];
+    //     list.push(numbers[i]);
+    //   }
+    // }
+
+    allNumbers.forEach( function(element) {
+      if (num >= element) {
+        num -= element
+        list.push(element)
       }
-    }
+    })
     return list.reverse()
   },
 
-  showList: function (num) {
-    let list = this.makeList(num)
+  showWordList: function (num) {
+    let list = this.makeIndividualNumberList(num)
     let scores = this.scores
 
     list = list.map( function(key) {
@@ -65,16 +72,16 @@ const allergies = {
   }
 };
 
-a = allergies.getScores();
+a = allergies.getTheNumbers();
 console.log(a);
 
-b = allergies.makeList(5);
+b = allergies.makeIndividualNumberList(5);
 console.log(b);
 
-c = allergies.showList(5);
+c = allergies.showWordList(5);
 console.log(c);
 
-d = allergies.showList(34);
+d = allergies.showWordList(34);
 console.log(d);
 
 
