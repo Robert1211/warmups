@@ -12,6 +12,7 @@ def number_of_clicks list, start, stop
   latest = [i, j].max
 
   around = (n - latest) + (earliest - 0)
+  around = n - inside
 
 
   p [inside, around].min
