@@ -3,8 +3,9 @@ console.log("connected");
 
 const reverse = (input) => {
   let output = [];
-  while (input.length > 0) {
-    output.push ( input.pop() )
+  let inputNew = input.slice()
+  while (inputNew.length > 0) {
+    output.push ( inputNew.pop() )
   }
 
   return output;
