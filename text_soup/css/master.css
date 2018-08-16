@@ -1,0 +1,20 @@
+body {
+  background: pink;
+}
+
+.shy {
+  display: none;
+}
+
+p {
+  position: relative;
+  margin: 0;
+}
+
+.container {
+  width: 50vw;
+  height: 50vh;
+  border: 1px red solid;
+  margin: 20vh auto;
+  /* position: absolute; */
+}
