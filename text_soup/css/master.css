@@ -1,5 +1,5 @@
 body {
-  background: pink;
+  background: rgb(10, 10, 50);
 }
 
 .shy {
@@ -7,14 +7,6 @@ body {
 }
 
 p {
-  position: relative;
+  position: absolute;
   margin: 0;
-}
-
-.container {
-  width: 50vw;
-  height: 50vh;
-  border: 1px red solid;
-  margin: 20vh auto;
-  /* position: absolute; */
 }
